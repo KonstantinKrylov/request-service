@@ -1,0 +1,7 @@
+spring:
+  rabbitmq:
+    template:
+      exchange: spring-boot-exchange
+
+queue:
+  name: testQueue
