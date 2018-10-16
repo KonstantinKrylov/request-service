@@ -5,4 +5,9 @@ import com.example.requestservice.domain.entry.RequestEntry;
 
 public interface DtoMapper<E extends RequestEntry, D extends RequestDto>{
     D makeDto(E entry);
+
+    default D setId(E entry, D dto){
+        dto.setId(entry.getId());
+        return dto;
+    }
 }

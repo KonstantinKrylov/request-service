@@ -9,6 +9,10 @@ public class SomeRequestDtoMapper implements DtoMapper<SomeRequestEntry, SomeReq
 
     @Override
     public SomeRequestDto makeDto(SomeRequestEntry entry) {
-        return null;
+        SomeRequestDto dto = new SomeRequestDto();
+        dto.setSomeIntegerField(entry.getSomeIntegerField());
+        dto.setSomeStringField(entry.getSomeStringField());
+        setId(entry, dto);
+        return dto;
     }
 }

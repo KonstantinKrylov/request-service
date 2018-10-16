@@ -13,4 +13,8 @@ public class SomeRequestProcessor extends AbstractRequestProcessor<SomeRequestDt
         super(entryMapper, repository);
     }
 
+    @Override
+    public Class<SomeRequestDto> getDtoClass() {
+        return SomeRequestDto.class;
+    }
 }

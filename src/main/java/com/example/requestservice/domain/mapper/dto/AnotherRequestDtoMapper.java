@@ -9,6 +9,10 @@ public class AnotherRequestDtoMapper implements DtoMapper<AnotherRequestEntry, A
 
     @Override
     public AnotherRequestDto makeDto(AnotherRequestEntry entry) {
-        return null;
+        AnotherRequestDto dto = new AnotherRequestDto();
+        dto.setAnotherIntegerField(entry.getAnotherIntegerField());
+        dto.setAnotherStringField(entry.getAnotherStringField());
+        setId(entry, dto);
+        return dto;
     }
 }

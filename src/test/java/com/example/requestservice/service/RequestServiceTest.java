@@ -1,6 +1,6 @@
 package com.example.requestservice.service;
 
-import com.example.requestservice.domain.dto.RequestDto;
+import com.example.requestservice.domain.dto.SomeRequestDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.AmqpTemplate;
@@ -30,10 +30,9 @@ public class RequestServiceTest {
     @Test
     public void process() throws Exception {
 
-        RequestDto dto = new RequestDto(UUID.randomUUID().toString());
+        SomeRequestDto dto = new SomeRequestDto(UUID.randomUUID().toString(), "test", 1);
         String requestId = requestService.sendToQueue(dto).block();
         assertEquals(dto.getId(), requestId);
-
 
     }
 }

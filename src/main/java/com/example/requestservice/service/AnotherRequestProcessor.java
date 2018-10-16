@@ -12,4 +12,9 @@ public class AnotherRequestProcessor extends AbstractRequestProcessor<AnotherReq
     public AnotherRequestProcessor(EntryMapper<AnotherRequestDto, AnotherRequestEntry> entryMapper, RequestRepository repository) {
         super(entryMapper, repository);
     }
+
+    @Override
+    public Class<AnotherRequestDto> getDtoClass() {
+        return AnotherRequestDto.class;
+    }
 }

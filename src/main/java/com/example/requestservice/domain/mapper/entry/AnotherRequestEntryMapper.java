@@ -9,6 +9,10 @@ public class AnotherRequestEntryMapper implements EntryMapper<AnotherRequestDto,
 
     @Override
     public AnotherRequestEntry makeEntry(AnotherRequestDto dto) {
-        return null;
+        AnotherRequestEntry entry = new AnotherRequestEntry();
+        entry.setAnotherIntegerField(dto.getAnotherIntegerField());
+        entry.setAnotherStringField(dto.getAnotherStringField());
+        setId(dto, entry);
+        return entry;
     }
 }

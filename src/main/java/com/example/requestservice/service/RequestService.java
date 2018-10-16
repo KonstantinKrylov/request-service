@@ -24,7 +24,7 @@ public class RequestService {
             dto.setId(UUID.randomUUID().toString());
         }
         return Mono.fromRunnable(()->rabbitService.sendToQueue(dto))
-                .then(Mono.just(dto.getId()));
+                .thenReturn(dto.getId());
     }
 
     public Mono<RequestDto> getResult(String id) {

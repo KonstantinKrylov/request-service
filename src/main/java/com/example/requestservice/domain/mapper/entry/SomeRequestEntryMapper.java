@@ -9,6 +9,10 @@ public class SomeRequestEntryMapper implements EntryMapper<SomeRequestDto, SomeR
 
     @Override
     public SomeRequestEntry makeEntry(SomeRequestDto dto) {
-        return null;
+        SomeRequestEntry entry = new SomeRequestEntry();
+        entry.setSomeIntegerField(dto.getSomeIntegerField());
+        entry.setSomeStringField(dto.getSomeStringField());
+        setId(dto, entry);
+        return entry;
     }
 }

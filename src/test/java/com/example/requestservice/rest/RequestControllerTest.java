@@ -1,6 +1,8 @@
 package com.example.requestservice.rest;
 
 import com.example.requestservice.domain.dto.RequestDto;
+import com.example.requestservice.domain.dto.SomeRequestDto;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.amqp.core.Queue;
@@ -24,9 +26,12 @@ public class RequestControllerTest {
     @Autowired
     private Queue queue;
 
+    @Autowired
+    private ObjectMapper mapper;
+
     @Test
     public void processRequest() throws Exception {
-        RequestDto dto = new RequestDto(UUID.randomUUID().toString());
+        SomeRequestDto dto = new SomeRequestDto(UUID.randomUUID().toString(), "test", 1);
 
         client.post().uri("/request")
                 .syncBody(dto)
