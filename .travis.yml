@@ -1,0 +1,16 @@
+sudo:
+  required
+
+services:
+  - rabbitmq
+  - mongodb
+
+
+cache:
+  directories:
+  - $HOME/.gradle
+
+language: java
+
+before_install:
+- chmod +x gradlew
