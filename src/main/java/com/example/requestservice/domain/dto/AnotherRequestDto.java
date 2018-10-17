@@ -13,4 +13,9 @@ public class AnotherRequestDto extends RequestDto {
     private String anotherStringField;
     private Integer anotherIntegerField;
 
+    public AnotherRequestDto(String id, String anotherStringField, Integer anotherIntegerField) {
+        super(id);
+        this.anotherStringField = anotherStringField;
+        this.anotherIntegerField = anotherIntegerField;
+    }
 }
