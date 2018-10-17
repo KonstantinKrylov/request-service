@@ -4,7 +4,6 @@ import com.example.requestservice.domain.dto.RequestDto;
 import com.example.requestservice.service.RequestService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.reactive.function.server.ServerResponse;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -15,10 +14,8 @@ public class RequestController {
     private final RequestService service;
 
     @PostMapping
-    public Mono<ServerResponse> processRequest(@RequestBody RequestDto dto) {
-        return ServerResponse.ok()
-                .body(service.sendToQueue(dto), String.class);
-
+    public Mono<String> processRequest(@RequestBody RequestDto dto) {
+        return service.sendToQueue(dto);
     }
 
     @GetMapping("/{id}")

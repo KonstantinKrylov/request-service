@@ -15,4 +15,9 @@ public class SomeRequestDtoMapper implements DtoMapper<SomeRequestEntry, SomeReq
         setId(entry, dto);
         return dto;
     }
+
+    @Override
+    public Class<SomeRequestEntry> getEntryClass() {
+        return SomeRequestEntry.class;
+    }
 }

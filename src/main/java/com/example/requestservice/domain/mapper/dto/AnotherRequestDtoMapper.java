@@ -15,4 +15,9 @@ public class AnotherRequestDtoMapper implements DtoMapper<AnotherRequestEntry, A
         setId(entry, dto);
         return dto;
     }
+
+    @Override
+    public Class<AnotherRequestEntry> getEntryClass() {
+        return AnotherRequestEntry.class;
+    }
 }
